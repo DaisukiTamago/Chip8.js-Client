@@ -1,5 +1,4 @@
 var socket = io('http://localhost:12345')
-//sends getRoms request when script loads
 socket.emit('getRoms')
 var keyState = new Array(16)
 keyState.fill(false)
@@ -86,10 +85,10 @@ function drawCanvas(raster){
     
     raster.data.forEach( (pixel, i) => {
         if (pixel) {
-            x = i % cols;
-            y = Math.floor(i / cols);
+            x = i % cols
+            y = Math.floor(i / cols)
             canvas.fillStyle = '#D6D6D6'
-            canvas.fillRect(x * PIXEL_SIZE, y * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE);
+            canvas.fillRect(x * PIXEL_SIZE, y * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE)
         }
     })
 
@@ -127,7 +126,6 @@ function keyBinder(key){
     if(key == 'r'){
         return 'D'
     }
-
     if(key == 'a'){
         return 7
     }
@@ -176,31 +174,31 @@ function highlightKeyManager(keyValue, highlight){
 
 var beep = (function () {
     var ctxClass = window.audioContext ||window.AudioContext || window.AudioContext || window.webkitAudioContext
-    var ctx = new ctxClass();
+    var ctx = new ctxClass()
     return function (duration, type, finishedCallback) {
 
         duration = +duration;
 
         // Only 0-4 are valid types.
-        type = (type % 5) || 0;
+        type = (type % 5) || 0
 
         if (typeof finishedCallback != "function") {
-            finishedCallback = function () {};
+            finishedCallback = function () {}
         }
 
-        var osc = ctx.createOscillator();
+        var osc = ctx.createOscillator()
 
         
         osc.type = "sine";
-        osc.connect(ctx.destination);
-        if (osc.noteOn) osc.noteOn(0); // old browsers
-        if (osc.start) osc.start(); // new browsers
+        osc.connect(ctx.destination)
+        if (osc.noteOn) osc.noteOn(0)
+        if (osc.start) osc.start()
 
         setTimeout(function () {
-            if (osc.noteOff) osc.noteOff(0); // old browsers
-            if (osc.stop) osc.stop(); // new browsers
-            finishedCallback();
-        }, duration);
+            if (osc.noteOff) osc.noteOff(0)
+            if (osc.stop) osc.stop()
+            finishedCallback()
+        }, duration)
 
     };
 })();
