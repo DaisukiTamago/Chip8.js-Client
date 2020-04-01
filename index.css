@@ -1,0 +1,122 @@
+@font-face {
+    font-family: retroFont;
+    src: url(font.ttf);
+    font-weight: bold;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    flex-direction: column;
+    font-family: retroFont;
+}
+.header {
+    width: 100%;
+    
+    color: white;
+    text-shadow: 1px 1px 2px white;
+    font-size: 35px;
+    height: 14%;
+    max-height: fit-content;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #36B300;
+}
+
+.emulator-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: auto;
+    margin-top: auto;
+    justify-content: space-evenly;
+
+}
+
+.buttons-panel {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    max-width: 40%;
+    justify-content: center;
+    border: 7px solid #36B300;
+    background-color: #000;
+    box-shadow: 2px 2px 0px white;
+}
+
+.buttons-panel button, select{
+    flex-grow: 1;
+    outline: none;
+    width: 20%;
+    font-family: retroFont;
+    font-size: 40px;
+    background: #36B300;
+    color: cornsilk;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border: none;
+    box-shadow: 2px 1px 1px white;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+
+
+canvas {
+    border: 7px solid #36B300;
+    background-color: #0F0F0F;
+    box-shadow: 2px 2px 10px white;
+}
+
+.net-panel {
+    display: flex;
+    flex-direction: row;
+}
+
+.create-room {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 15px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.list-rooms{
+    flex: 1;
+   
+}
+
+.rooms-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: justify;
+}
